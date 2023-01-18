@@ -63,7 +63,7 @@
             <div class="form-group">
                 <label for="salary"></label>
                 <input type="number" class="form-control" id="salary" placeholder="Enter salary"
-                required pattern="[123456789][0-9]"
+                required pattern="[123456789][0-9]+"
                 name="salary" [(ngModel)]="addEmployeeRequest.salary" #salary="ngModel">
                 <div *ngIf="salary.invalid && salary.touched">
                     <div *ngIf="salary.errors?.['required']">
