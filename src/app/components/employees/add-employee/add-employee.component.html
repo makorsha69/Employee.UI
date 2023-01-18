@@ -1,56 +1,104 @@
 <div class="container my-4">
-<h1 class="mb-3">Add New Employee</h1>
+<!-- <h1 class="mb-3">Add New Employee</h1> -->
 
 <div class="row">
+
+    <div class="col-6">
+        <h1 style="color:grey;font-size:100px;margin:60px; opacity:0.5">Add Employee Details</h1>
+    </div>
+
     <div class="col-6">
 
         <form #form="ngForm" (ngSubmit)="addEmployee()">
     
-            <div class="form-group">
+            
+            <div class="form-group" >
               <label for="name"></label>
               <input type="text" class="form-control" id="name" placeholder="Enter name" required
-                    name="name" [(ngModel)]="addEmployeeRequest.name">
+                    name="name" [(ngModel)]="addEmployeeRequest.name" #name="ngModel">
+                    <div *ngIf="name.invalid && name.touched"><span>Name is required</span></div>
             </div>
+
     
             <div class="form-group">
                 <label for="email"></label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email"
-                    name="email" [(ngModel)]="addEmployeeRequest.email">
+                <input type="email" class="form-control" id="email" placeholder="Enter email" required
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
+                    name="email" [(ngModel)]="addEmployeeRequest.email" #email="ngModel">
+                    <div *ngIf="email.invalid && email.touched">
+                        <div *ngIf="email.errors?.['required']">
+                            <span>Email is required</span>
+                        </div>
+                        <div *ngIf="email.errors?.['pattern']">
+                            <span>Email is invalid</span>
+                        </div>
+                    </div>
             </div>
+
     
             <div class="form-group">
                 <label for="address"></label>
-                <input type="text" class="form-control" id="address" placeholder="Enter address"
-                name="address" [(ngModel)]="addEmployeeRequest.address">
+                <input type="text" class="form-control" id="address" placeholder="Enter address" required
+                name="address" [(ngModel)]="addEmployeeRequest.address" #address="ngModel">
+                <div *ngIf="address.invalid && address.touched"><span>Address is required</span></div>
             </div>
+
 
             <div class="form-group">
                 <label for="mobile"></label>
-                <input type="text" class="form-control" id="mobile" placeholder="Enter mobile number"
-                name="mobile" [(ngModel)]="addEmployeeRequest.mobile">
+                <input type="text" class="form-control" id="mobile" placeholder="Enter mobile number" 
+                required pattern="[789][0-9]{9}" 
+                name="mobile" [(ngModel)]="addEmployeeRequest.mobile" #mobile="ngModel">
+                <div *ngIf="mobile.invalid && mobile.touched">
+                    <div *ngIf="mobile.errors?.['required']">
+                        <span>Mobile number is required</span>
+                    </div>
+                    <div *ngIf="mobile.errors?.['pattern']">
+                        <span>Mobile number should be 10 digit number only</span>
+                    </div>
+                </div>
             </div>
+
 
             <div class="form-group">
                 <label for="salary"></label>
                 <input type="number" class="form-control" id="salary" placeholder="Enter salary"
-                name="salary" [(ngModel)]="addEmployeeRequest.salary">
+                required pattern="[123456789][0-9]"
+                name="salary" [(ngModel)]="addEmployeeRequest.salary" #salary="ngModel">
+                <div *ngIf="salary.invalid && salary.touched">
+                    <div *ngIf="salary.errors?.['required']">
+                        <span>Salary number is required</span>
+                    </div>
+                    <div *ngIf="salary.errors?.['pattern']">
+                        <span>Enter valid salary</span>
+                    </div>
+                </div>
             </div>
+
 
             <div class="form-group">
                 <label for="department"></label>
                 <input type="text" class="form-control" id="department" placeholder="Enter Department"
-                name="department" [(ngModel)]="addEmployeeRequest.department">
+                required
+                name="department" [(ngModel)]="addEmployeeRequest.department" #department="ngModel">
+                <div *ngIf="department.invalid && department.touched"><span>Department is required</span></div>
             </div>
+
 
             <div class="form-group mb-3">
                 <label for="name"></label>
                 <input type="date" class="form-control" id="address" placeholder="Enter Date of Joining"
-                name="doj" [(ngModel)]="addEmployeeRequest.doj">
+                required
+                name="doj" [(ngModel)]="addEmployeeRequest.doj" #doj="ngModel">
+                <div *ngIf="doj.invalid && doj.touched"><span>Date of joining is required</span></div>
             </div>
+
             
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary"  [disabled]="!form.valid">Save</button>
         </form>
 
     </div>
+
+    
 </div>
 </div>

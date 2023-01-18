@@ -32,6 +32,7 @@ export class AddEmployeeComponent implements OnInit {
     .subscribe({
         next: (employee) => {
           console.log(employee);
+          alert("Employee Added Successfully");
           this.router.navigate(['employees']);
         }
     })
