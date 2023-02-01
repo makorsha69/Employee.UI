@@ -1,7 +1,7 @@
 <div class="container my-4">
 <h1 class="mb-3">Employees</h1>
 <div class="search">
-    <input class="form-control" type="search" style = "position:relative" name="search" [(ngModel)]="searchText" placeholder="Search" >
+    <input class="form-control" type="search"  name="search" [(ngModel)]="searchText" (input)="searchText" placeholder="Search" >
 </div>
 
 <table class="table table-hover table-borderless table-striped" *ngIf="employees && employees.length > 0">
