@@ -12,6 +12,9 @@ export class EmployeesListComponent implements OnInit {
 
   searchText : string = '';
   employees : Employee[] = [];
+  p:number = 1;
+  itemsPerPage:number = 3;
+  totalItem:any;
   constructor(private employeeService:EmployeesService) { }
 
   ngOnInit(): void {
@@ -20,6 +23,7 @@ export class EmployeesListComponent implements OnInit {
       next: (employees) => {
         console.log(employees);
         this.employees = employees;
+        this.totalItem = employees.length;
       },
       error: (response) => {
         console.log(response);

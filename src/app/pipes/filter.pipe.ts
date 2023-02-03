@@ -12,7 +12,11 @@ export class FilterPipe implements PipeTransform {
 
     const employees = [];
     for (const employee of value){
-      if(employee.name.toLowerCase().includes(searchText.toLowerCase()) || employee.address.toLowerCase().includes(searchText.toLowerCase())) {
+      if(employee.name.toLowerCase().includes(searchText.toLowerCase()) || 
+      employee.email.toLowerCase().includes(searchText.toLowerCase())   ||
+      employee.address.toLowerCase().includes(searchText.toLowerCase()) || 
+      employee.mobile.includes(searchText)                              ||
+      employee.department.toLowerCase().includes(searchText.toLowerCase())) {
         employees.push(employee);
       }
       

@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { EditEmployeeComponent } from './components/employees/edit-employee/edit-employee.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    NgxPaginationModule,
   
   ],
   providers: [],

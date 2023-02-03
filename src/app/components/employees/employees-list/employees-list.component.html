@@ -19,7 +19,7 @@
     </tr>
 </thead>
 <tbody>
-    <tr *ngFor="let employee of employees | filter:searchText">
+    <tr *ngFor="let employee of employees  | filter:searchText | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
         <td>{{ employee.empID }}</td>
         <td>{{ employee.name }}</td>
         <td>{{ employee.email }}</td>
@@ -34,7 +34,12 @@
         </button></td>
     </tr>
 </tbody>
-</table>
-<p *ngIf="!employees || employees.length <= 0">No Employee Found</p>
+<div class="mt-8 py-2 flex justify-center item-center">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
 <button type="button"(click)="download()" class="btn btn-success"><i class='fas fa-file-excel fa-lg'>Download Excel</i></button>
+</table>
+<br>
+<p *ngIf="!employees || employees.length <= 0">No Employee Found</p>
+
 </div>
