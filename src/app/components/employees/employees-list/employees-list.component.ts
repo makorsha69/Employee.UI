@@ -13,7 +13,7 @@ export class EmployeesListComponent implements OnInit {
   searchText : string = '';
   employees : Employee[] = [];
   p:number = 1;
-  itemsPerPage:number = 3;
+  itemsPerPage:number = 5;
   totalItem:any;
   constructor(private employeeService:EmployeesService) { }
 
@@ -42,7 +42,7 @@ export class EmployeesListComponent implements OnInit {
       title: 'Employee Details',
       useBom: true,
       noDownload: false,
-      headers: ["ID", "Name", "Email", "Contact no.", "Address", "Department", "Salary", "Date", "Status"]
+      headers: ["ID", "Name", "Email", "Contact no.", "Address", "Salary", "Department",  "Date", "Status"]
     };
    
     new ngxCsv(this.employees, "Report", options);

@@ -10,6 +10,13 @@ import { EditEmployeeComponent } from './components/employees/edit-employee/edit
 import { FilterPipe } from './pipes/filter.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
+import { UserDashboardComponent } from './components/user/user-dashboard/user-dashboard.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginNavComponent } from './components/login-nav/login-nav.component';
+import { LogoutNavComponent } from './components/logout-nav/logout-nav.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +25,13 @@ import {NgxPaginationModule} from 'ngx-pagination';
     AddEmployeeComponent,
     EditEmployeeComponent,
     FilterPipe,
+    AdminDashboardComponent,
+    UserDashboardComponent,
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent,
+    LoginNavComponent,
+    LogoutNavComponent,
 
     
   ],
