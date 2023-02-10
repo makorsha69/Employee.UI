@@ -17,6 +17,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginNavComponent } from './components/login-nav/login-nav.component';
 import { LogoutNavComponent } from './components/logout-nav/logout-nav.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,6 @@ import { LogoutNavComponent } from './components/logout-nav/logout-nav.component
     RegisterComponent,
     LoginNavComponent,
     LogoutNavComponent,
-
     
   ],
   imports: [
@@ -42,6 +42,8 @@ import { LogoutNavComponent } from './components/logout-nav/logout-nav.component
     FormsModule,
     BrowserAnimationsModule,
     NgxPaginationModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   
   ],
   providers: [],

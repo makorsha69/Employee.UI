@@ -5,13 +5,13 @@
         <div class="col-2">
             <h1 class="mb-3">Employees</h1>
             
-        </div>
+        </div >
         <div class="col-6">
-            <button type="submit" class="btn btn-secondary" [routerLink]="['/employees/add']">Add Employee</button>
-            <button type="button"(click)="download()" style="margin: 5px;" class="btn btn-success">Download Excel</button>
+            <button *ngIf="employees && employees.length > 0" type="submit" class="btn btn-secondary" [routerLink]="['/employees/add']">Add Employee</button>
+            <button *ngIf="employees && employees.length > 0" type="button"(click)="download()" style="margin: 5px;" class="btn btn-success">Download Excel</button>
         </div>
         <div class="search">
-            <input class="form-control" type="search"  name="search" [(ngModel)]="searchText" (input)="searchText" placeholder="Write something to Search..." >
+            <input *ngIf="employees && employees.length > 0" class="form-control" type="search"  name="search" [(ngModel)]="searchText" (input)="searchText" placeholder="Write something to Search..." >
         </div>     
     </div>
 
@@ -50,7 +50,7 @@
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
 </table>
-<br>
+
 <p *ngIf="!employees || employees.length <= 0">No Employee Found</p>
 
 </div>
