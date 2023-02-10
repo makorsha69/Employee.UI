@@ -15,6 +15,7 @@ export class LogoutNavComponent implements OnInit {
 
   Logout(){
     localStorage.removeItem('token');
+    localStorage.removeItem('email');
     this.router.navigateByUrl('/employees/login');
   }
 }

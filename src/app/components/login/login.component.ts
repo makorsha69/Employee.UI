@@ -21,20 +21,27 @@ export class LoginComponent implements OnInit {
   constructor(private service:EmployeesService, private toastr: ToastrService, private router:Router) { }
 
   ngOnInit(): void {
+
+    if(localStorage.getItem('token') != null && localStorage.getItem('email') == 'admin@admin.com')
+    this.router.navigate(['employees']);
+    else
+    this.router.navigate(['employees/user'])
+
   }
 
   Login(form:NgForm){
 
     this.service.login(form.value).subscribe(
-      (res:any)=>{localStorage.setItem('token',res.token);
+      (res:any)=>{ localStorage.setItem('token',res.token); localStorage.setItem('email',this.loginRequest.email);
       if(form.value.email=='admin@admin.com')
       {
-        this.toastr.success('ADMIN', 'Hello Admin', {timeOut:5000});
+        this.toastr.success('Welcome', 'Hello Admin', {timeOut:5000});
         this.router.navigateByUrl('/employees');
       }
       else
       {
-      this.toastr.success('USER', 'Hello User', {timeOut:5000});
+      this.toastr.success('Welcome Back', 'Hello User', {timeOut:5000});
+      this.router.navigateByUrl('/employees/user');
       }
     },
       err => {
