@@ -14,4 +14,13 @@
     </div>
   </nav>
 
-<p>user-dashboard works!</p>
+<h1>Hello!! Welcome Back.</h1>
+<h2>Below is your Profile Details</h2>
+<div class="card m-5" style="width:25rem" *ngIf="userDetails">
+  <ul class="list-group">
+    <li class="list-group-item"><strong>UserID :</strong> {{userDetails.userId}} </li>
+    <li class="list-group-item"><strong>Username :</strong> {{userDetails.username}} </li>
+    <li class="list-group-item"><strong>Email :</strong> {{userDetails.email}} </li>
+    <li class="list-group-item"><strong>Role :</strong> {{userDetails.role}} </li>
+  </ul>
+</div>

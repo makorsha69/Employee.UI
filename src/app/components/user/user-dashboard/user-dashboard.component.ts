@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { EmployeesService } from 'src/app/services/employees.service';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -8,9 +9,22 @@ import { Router } from '@angular/router';
 })
 export class UserDashboardComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  userDetails : any;
+
+  constructor(private router:Router, private service:EmployeesService) { }
 
   ngOnInit(): void {
+
+    this.service.getUserProfile().subscribe(
+      res => {
+        this.userDetails = res;
+        console.log(this.userDetails);
+      },
+      err => {
+        console.log(err);
+      },
+    );
+
   }
 
   Logout(){
