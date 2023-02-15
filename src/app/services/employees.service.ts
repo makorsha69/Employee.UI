@@ -23,7 +23,7 @@ export class EmployeesService {
   }
 
   getEmployeebyID(id: any) : Observable<Employee>{
-    return this.http.get<Employee>(this.baseApiUrl + '/api/Employees/'+id);
+    return this.http.get<Employee>(this.baseApiUrl + '/api/Employees/id='+id);
   }
 
   updateEmployee(id: any, updateEmployeeRequest:Employee):Observable<Employee> {
